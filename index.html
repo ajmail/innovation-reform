@@ -5,118 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Four Pillars of Innovation Funding Reform</title>
    <style>
+        :root {
+            --pitt-blue: #003B5C;
+            --pitt-light-blue: #0066A1;
+            --impact-green: #1B5E20;
+            --bg-gray: #f8f9fa;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
         
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: white;
-            padding: 50px 20px; /* Reduced side padding for smaller screens */
+            color: #333;
+            line-height: 1.6;
+            /* Dynamic padding: 50px on desktop, 20px on mobile */
+            padding: clamp(20px, 5vw, 50px); 
             max-width: 900px;
             margin: 0 auto;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: clamp(30px, 8vw, 50px);
         }
         
         .header h1 {
-            font-size: clamp(24px, 8vw, 36px); /* Responsive font size */
-            color: #003B5C;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.2; /* Better for wrapping text */
+            font-size: clamp(26px, 7vw, 36px);
+            color: var(--pitt-blue);
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-wrap: balance; /* Prevents awkward single-word lines */
         }
         
         .header .subtitle {
-            font-size: clamp(16px, 5vw, 20px);
-            color: #0066A1;
-            font-weight: 500;
+            font-size: clamp(17px, 4vw, 20px);
+            color: var(--pitt-light-blue);
+            font-weight: 600;
             margin-bottom: 10px;
         }
         
         .header .context {
             font-size: 16px;
             color: #666;
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
-            line-height: 1.5;
         }
         
         .pillars-container {
-            margin-top: 60px;
+            margin-top: 40px;
         }
         
         .pillar-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border: 3px solid #E0E0E0;
-            border-radius: 12px;
-            padding: clamp(20px, 5vw, 40px);
-            margin-bottom: 35px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--bg-gray) 100%);
+            border: 2px solid #EEE;
+            border-radius: 16px;
+            padding: clamp(25px, 6vw, 40px);
+            margin-bottom: 30px;
             position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
         }
         
         .pillar-number-badge {
             position: absolute;
-            top: -20px;
-            left: 20px; /* Moved slightly in for mobile */
-            background: linear-gradient(135deg, #0066A1 0%, #003B5C 100%);
+            top: -18px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--pitt-light-blue) 0%, var(--pitt-blue) 100%);
             color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px; /* Slightly squared for a modern look */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0, 59, 92, 0.2);
         }
         
         .pillar-title {
-            font-size: clamp(20px, 6vw, 26px);
-            color: #003B5C;
+            font-size: clamp(20px, 5vw, 24px);
+            color: var(--pitt-blue);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            padding-top: 5px;
+        }
+        
+        .pillar-subtitle {
+            font-size: 16px;
+            color: var(--pitt-light-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
         }
         
         .pillar-highlights {
-            background: #F0F7FA;
-            border-left: 4px solid #0066A1;
-            padding: 15px;
-            border-radius: 6px;
+            background: #f0f4f8;
+            border-radius: 12px;
+            padding: 20px;
             margin-top: 20px;
         }
 
+        .pillar-highlights li {
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .pillar-highlights li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--pitt-light-blue);
+            font-weight: bold;
+        }
+
         .impact-banner {
-            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            background: var(--impact-green);
             color: white;
-            padding: 30px 15px;
-            border-radius: 12px;
-            margin-top: 50px;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-top: 40px;
             text-align: center;
         }
 
         .impact-stat {
-            font-size: clamp(32px, 10vw, 48px);
-            font-weight: 700;
+            font-size: clamp(40px, 12vw, 56px);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
-        /* MOBILE ADJUSTMENTS */
+        .footer-support {
+            border-left: 4px solid var(--pitt-light-blue);
+            background: var(--bg-gray);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+        }
+
+        /* SPECIFIC MOBILE POLISH */
         @media (max-width: 600px) {
-            body {
-                padding: 40px 15px;
-            }
-            .header {
-                margin-bottom: 30px;
-            }
             .pillar-card {
-                padding-top: 35px; /* Space for the badge */
+                border-width: 1px;
+                padding-top: 40px;
+            }
+            .pillar-number-badge {
+                left: 20px;
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
             }
         }
     </style>
