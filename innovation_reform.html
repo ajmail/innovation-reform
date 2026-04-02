@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Pillars of Innovation Funding Reform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: white;
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            color: #003B5C;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        
+        .header .subtitle {
+            font-size: 20px;
+            color: #0066A1;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .header .context {
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .pillars-container {
+            margin-top: 60px;
+        }
+        
+        .pillar-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 3px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 35px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            border-color: #0066A1;
+            box-shadow: 0 6px 20px rgba(0, 102, 161, 0.15);
+        }
+        
+        .pillar-number-badge {
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            background: linear-gradient(135deg, #0066A1 0%, #003B5C 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 59, 92, 0.3);
+        }
+        
+        .pillar-header {
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        
+        .pillar-title {
+            font-size: 26px;
+            color: #003B5C;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .pillar-subtitle {
+            font-size: 18px;
+            color: #0066A1;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-description {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .pillar-highlights {
+            background: #F0F7FA;
+            border-left: 4px solid #0066A1;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        
+        .pillar-highlights strong {
+            color: #003B5C;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .pillar-highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pillar-highlights li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .pillar-highlights li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0066A1;
+            font-weight: bold;
+        }
+        
+        .impact-banner {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
+        }
+        
+        .impact-banner h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .impact-stat {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 10px 0;
+            letter-spacing: -1px;
+        }
+        
+        .impact-label {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-top: 8px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #E0E0E0;
+            text-align: center;
+        }
+        
+        .footer-main {
+            color: #003B5C;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .footer-support {
+            background: #E8F4F8;
+            border-left: 4px solid #0066A1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .footer-support p {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .footer-contact {
+            color: #666;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        
+        .footer-contact strong {
+            color: #003B5C;
+        }
+        
+        @media print {
+            body {
+                padding: 30px;
+            }
+            
+            .pillar-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Four Pillars of Innovation Funding Reform</h1>
+        <div class="subtitle">Protecting Governor Shapiro's $100M Investment</div>
+        <div class="context">
+            Accountability provisions to maximize founder impact, ensure transparency, retain companies, and build a sustainable innovation economy
+        </div>
+    </div>
+    
+    <div class="pillars-container">
+        <!-- PILLAR 1 -->
+        <div class="pillar-card">
+            <div class="pillar-number-badge">1</div>
+            <div class="pillar-header">
+                <div class="pillar-title">Direct-to-Founder Capital Mandate</div>
+                <div class="pillar-subtitle">The 60/40 Rule</div>
+            </div>
+            <div class="pillar-description">
+                Require that 60% of state innovation dollars reach founders as direct capital—loans, equity investments, or grants. The remaining 40% covers operating costs, technical assistance, and program delivery.
+            </div>
+            <div class="pillar-highlights">
+                <strong>Why This Matters:</strong>
+                <ul>
+                    <li>Current system: Only 25 cents on the dollar reaches founders (FY2025 data)</li>
+                    <li>Under this mandate: $60M of the $100M reaches founders vs. $25M today</li>
+                    <li>Enforcement: Shortfalls result in reduced appropriations the following year</li>
+                    <li>Not punitive—it's a return to the original mission of supporting founders</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- PILLAR 2 -->
+        <div class="pillar-card">
+            <div class="pillar-number-badge">2</div>
+            <div class="pillar-header">
+                <div class="pillar-title">Public Returns Transparency</div>
+                <div class="pillar-subtitle">Show Taxpayers the Scoreboard</div>
+            </div>
+            <div class="pillar-description">
+                If state dollars generate recycled capital through exits and repayments, publish the returns. Disclose Internal Rate of Return (IRR), fund performance, and exit outcomes so taxpayers can see whether their innovation investments are working.
+            </div>
+            <div class="pillar-highlights">
+                <strong>What Gets Disclosed:</strong>
+                <ul>
+                    <li>Fund IRR (gross and net) calculated annually</li>
+                    <li>Multiple on Invested Capital (MOIC) for realized and unrealized investments</li>
+                    <li>Total recycled capital generated through exits and loan repayments</li>
+                    <li>Number of portfolio companies, exits, and jobs created</li>
+                    <li>Protects proprietary information—only aggregate data disclosed</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- PILLAR 3 -->
+        <div class="pillar-card">
+            <div class="pillar-number-badge">3</div>
+            <div class="pillar-header">
+                <div class="pillar-title">Regional Consolidation Study</div>
+                <div class="pillar-subtitle">Streamline for Efficiency</div>
+            </div>
+            <div class="pillar-description">
+                Direct DCED to evaluate Pennsylvania's four regional Ben Franklin Technology Partner centers to identify redundancies, measure overhead costs, and determine whether consolidation could increase the percentage of state dollars reaching founders.
+            </div>
+            <div class="pillar-highlights">
+                <strong>Study Objectives:</strong>
+                <ul>
+                    <li>Compare operational efficiency across four regional centers</li>
+                    <li>Calculate administrative overhead as % of state appropriations</li>
+                    <li>Identify overlapping services and duplicated infrastructure</li>
+                    <li>Evaluate consolidation benefits while maintaining regional coverage</li>
+                    <li>Not about eliminating presence—about maximizing efficiency</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- PILLAR 4 -->
+        <div class="pillar-card">
+            <div class="pillar-number-badge">4</div>
+            <div class="pillar-header">
+                <div class="pillar-title">Build Retention Infrastructure</div>
+                <div class="pillar-subtitle">Keep Companies in Pennsylvania</div>
+            </div>
+            <div class="pillar-description">
+                Attracting founders means nothing if the first thing their coastal investors say is "have you considered relocating?" The ecosystem has to give people a reason to stay after they raise—not just a reason to start. That means follow-on capital, legal infrastructure, recruiting networks, and a community dense enough to matter.
+            </div>
+            <div class="pillar-highlights">
+                <strong>Retention Requirements:</strong>
+                <ul>
+                    <li>Multi-stage capital availability: seed through Series B within Pennsylvania</li>
+                    <li>Legal & operational support: experienced startup counsel, HR infrastructure, compliance resources</li>
+                    <li>Executive recruiting networks: proven ability to attract C-suite talent to Pennsylvania</li>
+                    <li>Dense founder community: peer networks, knowledge sharing, mentorship at scale</li>
+                    <li>Success metric: % of portfolio companies remaining headquartered in PA 3 years post-investment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="impact-banner">
+        <h2>Expected Impact on $100M Innovate in PA 2.0 Investment</h2>
+        <div class="impact-stat">+$35M</div>
+        <div class="impact-label">
+            Additional capital reaching Pennsylvania founders<br>
+            ($60M with mandate vs. $25M under current system)
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-main">These reforms protect the investment and maximize founder impact</div>
+        
+        <div class="footer-support">
+            <p><strong>Position:</strong> I support Governor Shapiro's Innovate in PA 2.0 proposal. Pennsylvania needs this $100M investment. These reforms ensure the money reaches founders instead of getting absorbed by overhead—protecting the investment from future political attacks and building a sustainable innovation economy.</p>
+        </div>
+        
+        <div class="footer-contact">
+            <strong>Prepared by:</strong> Ajmail Matin<br>
+            Pittsburgh Founder | Executive MBA Student, Katz School of Business, University of Pittsburgh<br>
+            Based on publicly available audit data and Pennsylvania's 2026-27 Budget Proposal
+        </div>
+    </div>
+</body>
+</html>
