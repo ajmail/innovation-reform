@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Four Pillars of Innovation Funding Reform</title>
-    <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: white;
-            padding: 50px;
+            padding: 50px 20px; /* Reduced side padding for smaller screens */
             max-width: 900px;
             margin: 0 auto;
         }
@@ -25,16 +25,16 @@
         }
         
         .header h1 {
-            font-size: 36px;
+            font-size: clamp(24px, 8vw, 36px); /* Responsive font size */
             color: #003B5C;
             margin-bottom: 15px;
             font-weight: 700;
             letter-spacing: -0.5px;
-            white-space: nowrap;
+            line-height: 1.2; /* Better for wrapping text */
         }
         
         .header .subtitle {
-            font-size: 20px;
+            font-size: clamp(16px, 5vw, 20px);
             color: #0066A1;
             font-weight: 500;
             margin-bottom: 10px;
@@ -43,7 +43,6 @@
         .header .context {
             font-size: 16px;
             color: #666;
-            font-weight: 400;
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.5;
@@ -57,174 +56,67 @@
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             border: 3px solid #E0E0E0;
             border-radius: 12px;
-            padding: 40px;
+            padding: clamp(20px, 5vw, 40px);
             margin-bottom: 35px;
             position: relative;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .pillar-card:hover {
-            border-color: #0066A1;
-            box-shadow: 0 6px 20px rgba(0, 102, 161, 0.15);
         }
         
         .pillar-number-badge {
             position: absolute;
             top: -20px;
-            left: 40px;
+            left: 20px; /* Moved slightly in for mobile */
             background: linear-gradient(135deg, #0066A1 0%, #003B5C 100%);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 24px;
-            box-shadow: 0 4px 12px rgba(0, 59, 92, 0.3);
-        }
-        
-        .pillar-header {
-            margin-bottom: 20px;
-            padding-top: 10px;
+            font-size: 20px;
         }
         
         .pillar-title {
-            font-size: 26px;
+            font-size: clamp(20px, 6vw, 26px);
             color: #003B5C;
             font-weight: 700;
             margin-bottom: 8px;
-            line-height: 1.3;
-        }
-        
-        .pillar-subtitle {
-            font-size: 18px;
-            color: #0066A1;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .pillar-description {
-            color: #444;
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 20px;
         }
         
         .pillar-highlights {
             background: #F0F7FA;
             border-left: 4px solid #0066A1;
-            padding: 20px;
+            padding: 15px;
             border-radius: 6px;
             margin-top: 20px;
         }
-        
-        .pillar-highlights strong {
-            color: #003B5C;
-            font-size: 15px;
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        .pillar-highlights ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .pillar-highlights li {
-            padding-left: 25px;
-            position: relative;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-        
-        .pillar-highlights li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #0066A1;
-            font-weight: bold;
-        }
-        
+
         .impact-banner {
             background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
             color: white;
-            padding: 30px;
+            padding: 30px 15px;
             border-radius: 12px;
             margin-top: 50px;
             text-align: center;
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
         }
-        
-        .impact-banner h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
+
         .impact-stat {
-            font-size: 48px;
+            font-size: clamp(32px, 10vw, 48px);
             font-weight: 700;
-            margin: 10px 0;
-            letter-spacing: -1px;
         }
-        
-        .impact-label {
-            font-size: 16px;
-            opacity: 0.95;
-            margin-top: 8px;
-        }
-        
-        .footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 3px solid #E0E0E0;
-            text-align: center;
-        }
-        
-        .footer-main {
-            color: #003B5C;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .footer-support {
-            background: #E8F4F8;
-            border-left: 4px solid #0066A1;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        
-        .footer-support p {
-            color: #333;
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 0;
-        }
-        
-        .footer-contact {
-            color: #666;
-            font-size: 14px;
-            margin-top: 15px;
-        }
-        
-        .footer-contact strong {
-            color: #003B5C;
-        }
-        
-        @media print {
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 600px) {
             body {
-                padding: 30px;
+                padding: 40px 15px;
             }
-            
+            .header {
+                margin-bottom: 30px;
+            }
             .pillar-card {
-                page-break-inside: avoid;
+                padding-top: 35px; /* Space for the badge */
             }
         }
     </style>
